@@ -1,0 +1,5 @@
+{:dev-http {8686 "public"}
+ :builds
+ {:app
+  {:target  :browser
+   :modules {:main {:init-fn quoter.core/init}}}}}
