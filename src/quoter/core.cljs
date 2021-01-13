@@ -45,13 +45,14 @@
                     :margin           "0px auto"
                     :padding          "1.5rem"
                     :border-radius    "10px"}
-           [:.placeholder {:background-color    :lightskyblue
-                           :background          "linear-gradient(to right, white, white, lightskyblue, white, white)"
-                           :background-size     "380% 100%"
-                           :animation           "placeholder-animation 5s linear infinite"
-                           :animation-direction "reverse"
-                           :margin              "0.5rem 1rem"
-                           :height              "1.5rem"}]
+           [:.wrapper-holder {:margin-bottom "1rem"}
+            [:.placeholder {:background-color    :lightskyblue
+                            :background          "linear-gradient(to right, white, white, lightskyblue, white, white)"
+                            :background-size     "380% 100%"
+                            :animation           "placeholder-animation 5s linear infinite"
+                            :animation-direction "reverse"
+                            :margin              "0.5rem 0rem"
+                            :height              "1.5rem"}]]
            [:.text {:font-size "1.5rem"}
             [:&:before {:content "'“'"}]
             [:&:after {:content "'”'"}]]
@@ -89,7 +90,7 @@
                           k)) params)))
 
 (def placeholder
-  [:div
+  [:div.wrapper-holder
    [:div.placeholder]
    [:div.placeholder]])
 
