@@ -27,12 +27,12 @@
 (defn get-twitter-link [state]
   (str "https://twitter.com/intent/tweet?hashtags=quoter&text=" (get-text state) " - " (get-author state)))
 
-(def palette
-  {:twitter-blue  "#1b95e0"})
 
 (def styles
-  (let [main-color  (:twitter-blue palette)
-        hover-color "#009fff"]
+  (let [main-color    "#537589"
+        main-text     "#3c3c3c"
+        hover-color   "#328ec3"
+        disable-color "#6fa4c3"]
     (css [:body {:background-color main-color
                  :font-family      "Verdana, sans-serif"}
           [:h1 {:margin-top "3rem"
@@ -40,7 +40,7 @@
                 :text-align :center}]
 
           [:.quote {:background-color :white
-                    :color            main-color
+                    :color            main-text
                     :width            "50%"
                     :margin           "0px auto"
                     :padding          "1.5rem"
@@ -74,7 +74,7 @@
              [:&:hover {:background-color hover-color
                         :transition       "background-color 0.2s ease-in"}]
              [:&.disabled {:pointer-events   :none
-                           :background-color :lightskyblue}]]
+                           :background-color disable-color}]]
             ]]])))
 
 (def pure-css
