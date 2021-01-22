@@ -1,3 +1,9 @@
+.EXPORT_ALL_VARIABLES:
+
+IMG_NAME=rende11/quoter
+IMG_TAG=0.0.1
+IMG=${IMG_NAME}:${IMG_TAG}
+
 install:
 	npm install
 
@@ -11,7 +17,14 @@ build-ui:
 	clj -M:shadow release app
 
 build-image:
-	docker build . -t quoter:0.0.1
+	rm -rf public/js/cljs-runtime
+	docker build . -t ${IMG}
 
 run:
-	docker run -it -p 3080:80 quoter:0.0.1
+	docker run -it -p 3080:80 ${IMG}
+
+pub:
+	docker push ${IMG}
+
+all: build-ui build-image pub
+
