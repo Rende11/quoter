@@ -3,6 +3,7 @@
             [reagent.core :as r]
             [ajax.core :refer [GET]]
             [garden.core :refer [css]]
+            [goog.string :as gstring]
             [clojure.string :as str]))
 
 (defonce app-state
@@ -29,11 +30,11 @@
 
 
 (def styles
-  (let [main-color    "#537589"
+  (let [bg-color      "var(--main-bg-color)"
         main-text     "#3c3c3c"
         hover-color   "#328ec3"
         disable-color "#6fa4c3"]
-    (css [:body {:background-color main-color
+    (css [:body {:background-color bg-color
                  :font-family      "Verdana, sans-serif"}
           [:h1 {:margin-top "3rem"
                 :color      :white
@@ -46,8 +47,7 @@
                     :padding          "1.5rem"
                     :border-radius    "10px"}
            [:.wrapper-holder {:margin-bottom "1rem"}
-            [:.placeholder {:background-color    :lightskyblue
-                            :background          "linear-gradient(to right, white, white, lightskyblue, white, white)"
+            [:.placeholder {:background          (gstring/format "linear-gradient(to right, white, white, %s, white, white)" disable-color)
                             :background-size     "380% 100%"
                             :animation           "placeholder-animation 5s linear infinite"
                             :animation-direction "reverse"
@@ -65,7 +65,7 @@
                     :text-transform   :uppercase
                     :font-weight      :bold
                     :transition       "background-color 0.2s ease-out"
-                    :background-color main-color
+                    :background-color bg-color
                     :border-radius    "4px"
                     :padding          "0.5rem 1rem"
                     :width            :fit-content
@@ -74,8 +74,7 @@
              [:&:hover {:background-color hover-color
                         :transition       "background-color 0.2s ease-in"}]
              [:&.disabled {:pointer-events   :none
-                           :background-color disable-color}]]
-            ]]])))
+                           :background-color disable-color}]]]]])))
 
 (def pure-css
   "@keyframes placeholder-animation {

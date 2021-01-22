@@ -1,0 +1,4 @@
+body {
+    --main-bg-color: #537589;
+    background-color: var(--main-bg-color);
+}
