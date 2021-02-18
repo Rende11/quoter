@@ -3,6 +3,7 @@
             [reagent.core :as r]
             [ajax.core :refer [GET]]
             [garden.core :refer [css]]
+            [garden.stylesheet :refer [at-media]]
             [goog.string :as gstring]
             [clojure.string :as str]))
 
@@ -74,7 +75,15 @@
              [:&:hover {:background-color hover-color
                         :transition       "background-color 0.2s ease-in"}]
              [:&.disabled {:pointer-events   :none
-                           :background-color disable-color}]]]]])))
+                           :background-color disable-color}]]]]
+          (at-media {:max-width "1200px"}
+                    [:.quote {:width "60%"}])
+          (at-media {:max-width "800px"}
+                    [:.quote {:width "70%"}])
+          (at-media {:max-width "600px"}
+                    [:.quote {:width "75%"}])
+          (at-media {:max-width "400px"}
+                    [:.quote {:width "80%"}])])))
 
 (def pure-css
   "@keyframes placeholder-animation {
