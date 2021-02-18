@@ -1,4 +1,24 @@
+
 body {
     --main-bg-color: #537589;
     background-color: var(--main-bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+#root {
+    flex: 1;
+}
+
+#footer {
+    color: white;
+    text-align: center;
+    font-size: small;
+    margin: 5px 0px;
+}
+
+#footer > a {
+    color: white;
 }
