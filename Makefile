@@ -28,3 +28,10 @@ pub:
 
 all: build-ui build-image pub
 
+heroku-push:
+	heroku container:push web --remote docker
+
+heroku-release:
+	heroku container:release web --remote docker
+
+heroku-deploy: heroku-push heroku-release
