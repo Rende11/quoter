@@ -117,8 +117,9 @@
     [:div.buttons
      [:a.btn.twitter-share-button {:href   (get-twitter-link @state)
                                    :target "_blank"} "Tweet"]
-     [:div.btn {:on-click #(get-quote! state)
-                :class    (build-class {"disabled" (:loading @state)})} "Next"]]]])
+     [:a.btn {:on-click #(get-quote! state)
+              :href     "#"
+              :class    (build-class {"disabled" (:loading @state)})} "Next"]]]])
 
 (defn run []
   (get-quote! app-state)
